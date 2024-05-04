@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Third Layer - {{ folder_name }}</title>
+    <style>
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Images in {{ folder_name }}</h1>
+    <ul>
+        {% for image_file in image_files %}
+        <li>
+            <a href="{{ url_for('image_display', folder_name=folder_name, image_name=image_file) }}">{{ image_file }}</a>
+            <img src="{{ url_for('image_display', folder_name=folder_name, image_name=image_file) }}" alt="{{ image_file }}">
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
